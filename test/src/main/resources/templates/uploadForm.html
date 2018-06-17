@@ -1,0 +1,37 @@
+<html xmlns:th="http://www.thymeleaf.org">
+
+
+<body>
+	<div>
+		<form method="POST" enctype="multipart/form-data" action="/">
+			<table>
+				<tr>
+					<td>File to upload:</td>
+					<td><input type="file" name="file" /></td>
+				</tr>
+				<tr>
+					<td><input type="submit" name="button" value="Count words" /></td>
+					<td></td>
+					<td><input type="submit" name="button" value="Validate brackets" /></td>
+				</tr>
+			</table>
+		</form>
+	</div>
+
+	<div th:if="${message}">
+		<h2 th:text="${message}" />
+	</div>
+	
+	<table border="1px" >
+		<tr th:each="word : ${repeatableWords}">
+			<td>
+				<h3 th:text="${word.key}" />
+			</td>
+ 			<td>
+				<h3 th:text="${word.value}" />
+			</td>  
+		</tr>
+	</table>
+
+</body>
+</html>
